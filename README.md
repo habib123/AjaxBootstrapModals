@@ -3,7 +3,9 @@
 
 Rails CRUD Bootstrap-Models using Ajax
 
-Bundle update
+bundle install
+
+bundle update
 	
 rails generate resource Customer first_name last_name phone email street zip city
 
