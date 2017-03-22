@@ -1,0 +1,200 @@
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (5.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateCustomers (20150219210701)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "customers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "phone" varchar, "email" varchar, "street" varchar, "zip" varchar, "city" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150219210701"]]
+  [1m[35m (4.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mCustomer Load (0.1ms)[0m  SELECT "customers".* FROM "customers"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "customers" ("id", "first_name", "last_name", "email", "street", "city", "zip", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["id", 1], ["first_name", "John"], ["last_name", "Doe"], ["email", "john@doe.com"], ["street", "Allen St."], ["city", "Manhattan"], ["zip", "10002"], ["created_at", "2017-03-22 09:37:24.111308"], ["updated_at", "2017-03-22 09:37:24.111308"]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "customers" ("id", "first_name", "last_name", "email", "street", "city", "zip", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["first_name", "Jane"], ["last_name", "Roe"], ["email", "jane@roe.com"], ["street", "Boo St."], ["city", "Kirkland"], ["zip", "98034"], ["created_at", "2017-03-22 09:37:24.120418"], ["updated_at", "2017-03-22 09:37:24.120418"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "customers" ("id", "first_name", "last_name", "email", "street", "city", "zip", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["id", 3], ["first_name", "Foo"], ["last_name", "Bar"], ["email", "foo@bar.com"], ["street", "Boo St."], ["city", "Kirkland"], ["zip", "98034"], ["created_at", "2017-03-22 09:37:24.127575"], ["updated_at", "2017-03-22 09:37:24.127575"]]
+  [1m[36m (4.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "customers" ("id", "first_name", "last_name", "email", "street", "city", "zip", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 4], ["first_name", "Rachid"], ["last_name", "Benkirane"], ["email", "contact@roe.com"], ["street", "Boo St."], ["city", "Kirkland"], ["zip", "98034"], ["created_at", "2017-03-22 09:37:24.134861"], ["updated_at", "2017-03-22 09:37:24.134861"]]
+  [1m[35m (4.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "customers"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-22 10:37:50 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CustomersController#index as HTML
+  [1m[35mCustomer Load (0.2ms)[0m  SELECT "customers".* FROM "customers"
+  Rendered customers/_customer.html.erb (4.2ms)
+  Rendered customers/_dialog.html.erb (0.5ms)
+  Rendered customers/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 4374ms (Views: 4363.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/custom.self-be9996249144539918d5f44d24a92479719b09fd0907f3d02bfdaa4df4681c8c.css?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/customers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/application.self-c4991312985bccd133f1f21ab2f6a5d0129a8416a91037313b14f05d7d2e7dde.css?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/customers.self-83aa485c055c2925fe7a525e7d3df918ecfd2aada5eddc43ec1c1f31876adbb1.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/assets/application.self-37db817b85702151c83913f7ad7dd37afeee699eb9ff2cd9af6b31653e7115d7.js?body=1" for 127.0.0.1 at 2017-03-22 10:37:54 +0100
+
+
+Started GET "/customers/1/edit" for 127.0.0.1 at 2017-03-22 10:38:03 +0100
+Processing by CustomersController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered customers/_form.html.erb (15.2ms)
+  Rendered customers/edit.js.erb (19.4ms)
+Completed 200 OK in 30ms (Views: 23.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for 127.0.0.1 at 2017-03-22 10:38:03 +0100
+
+
+Started PATCH "/customers/1" for 127.0.0.1 at 2017-03-22 10:38:07 +0100
+Processing by CustomersController#update as JS
+  Parameters: {"utf8"=>"✓", "customer"=>{"first_name"=>"John", "last_name"=>"Doe", "phone"=>"", "email"=>"john@doe.com", "street"=>"Allen St.", "zip"=>"10002", "city"=>"Manhattan"}, "commit"=>"Update Customer", "id"=>"1"}
+  [1m[35mCustomer Load (0.2ms)[0m  SELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "customers" SET "phone" = ?, "updated_at" = ? WHERE "customers"."id" = ?  [["phone", ""], ["updated_at", "2017-03-22 09:38:07.085279"], ["id", 1]]
+  [1m[36m (4.5ms)[0m  [1mcommit transaction[0m
+  Rendered customers/_customer.html.erb (1.1ms)
+  Rendered customers/update.js.erb (2.5ms)
+Completed 200 OK in 18ms (Views: 5.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/customers/1/edit" for 127.0.0.1 at 2017-03-22 10:38:08 +0100
+Processing by CustomersController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[35mCustomer Load (0.3ms)[0m  SELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered customers/_form.html.erb (4.5ms)
+  Rendered customers/edit.js.erb (10.0ms)
+Completed 200 OK in 24ms (Views: 21.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/customers/1" for 127.0.0.1 at 2017-03-22 10:38:11 +0100
+Processing by CustomersController#update as JS
+  Parameters: {"utf8"=>"✓", "customer"=>{"first_name"=>"John", "last_name"=>"Doe", "phone"=>"", "email"=>"john@doe.com", "street"=>"Allen St.", "zip"=>"10002", "city"=>"Manhattan"}, "commit"=>"Update Customer", "id"=>"1"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  Rendered customers/_customer.html.erb (1.1ms)
+  Rendered customers/update.js.erb (2.6ms)
+Completed 200 OK in 9ms (Views: 4.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/customers/new" for 127.0.0.1 at 2017-03-22 10:38:15 +0100
+Processing by CustomersController#new as JS
+  Rendered customers/_form.html.erb (2.8ms)
+  Rendered customers/new.js.erb (7.8ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/customers" for 127.0.0.1 at 2017-03-22 10:38:24 +0100
+Processing by CustomersController#create as JS
+  Parameters: {"utf8"=>"✓", "customer"=>{"first_name"=>"Habibur", "last_name"=>"Rahman", "phone"=>"", "email"=>"", "street"=>"", "zip"=>"", "city"=>""}, "commit"=>"Create Create"}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "street", "zip", "city", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Habibur"], ["last_name", "Rahman"], ["phone", ""], ["email", ""], ["street", ""], ["zip", ""], ["city", ""], ["created_at", "2017-03-22 09:38:24.923803"], ["updated_at", "2017-03-22 09:38:24.923803"]]
+  [1m[35m (7.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  Rendered customers/_customer.html.erb (2.4ms)
+  Rendered customers/create.js.erb (5.8ms)
+Completed 200 OK in 38ms (Views: 11.6ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/customers/5/edit" for 127.0.0.1 at 2017-03-22 10:38:28 +0100
+Processing by CustomersController#edit as JS
+  Parameters: {"id"=>"5"}
+  [1m[36mCustomer Load (0.3ms)[0m  [1mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered customers/_form.html.erb (4.6ms)
+  Rendered customers/edit.js.erb (14.5ms)
+Completed 200 OK in 35ms (Views: 31.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/customers/5" for 127.0.0.1 at 2017-03-22 10:38:33 +0100
+Processing by CustomersController#update as JS
+  Parameters: {"utf8"=>"✓", "customer"=>{"first_name"=>"", "last_name"=>"Rahman", "phone"=>"", "email"=>"", "street"=>"", "zip"=>"", "city"=>""}, "commit"=>"Update Customer", "id"=>"5"}
+  [1m[35mCustomer Load (0.4ms)[0m  SELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 32ms (Views: 0.7ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/customers/5" for 127.0.0.1 at 2017-03-22 10:39:26 +0100
+Processing by CustomersController#update as JS
+  Parameters: {"utf8"=>"✓", "customer"=>{"first_name"=>"Md Habibur", "last_name"=>"Rahman", "phone"=>"002332323", "email"=>"habib@sonnenbatterie.de", "street"=>"wildpoldsrid", "zip"=>"8799", "city"=>"Kempten"}, "commit"=>"Update Customer", "id"=>"5"}
+  [1m[36mCustomer Load (0.4ms)[0m  [1mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "customers" SET "first_name" = ?, "phone" = ?, "email" = ?, "street" = ?, "zip" = ?, "city" = ?, "updated_at" = ? WHERE "customers"."id" = ?[0m  [["first_name", "Md Habibur"], ["phone", "002332323"], ["email", "habib@sonnenbatterie.de"], ["street", "wildpoldsrid"], ["zip", "8799"], ["city", "Kempten"], ["updated_at", "2017-03-22 09:39:26.383087"], ["id", 5]]
+  [1m[35m (7.7ms)[0m  commit transaction
+  Rendered customers/_customer.html.erb (0.8ms)
+  Rendered customers/update.js.erb (3.8ms)
+Completed 200 OK in 36ms (Views: 9.1ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/customers/new" for 127.0.0.1 at 2017-03-22 10:39:33 +0100
+Processing by CustomersController#new as JS
+  Rendered customers/_form.html.erb (4.1ms)
+  Rendered customers/new.js.erb (13.3ms)
+Completed 200 OK in 38ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/customers" for 127.0.0.1 at 2017-03-22 10:39:35 +0100
+Processing by CustomersController#create as JS
+  Parameters: {"utf8"=>"✓", "customer"=>{"first_name"=>"", "last_name"=>"", "phone"=>"", "email"=>"", "street"=>"", "zip"=>"", "city"=>""}, "commit"=>"Create Create"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 17ms (Views: 0.3ms | ActiveRecord: 0.6ms)
