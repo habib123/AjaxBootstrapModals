@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @customers = Customer.all
   end
@@ -23,7 +23,6 @@ class CustomersController < ApplicationController
       else
         format.json { render json: @customer.errors.full_messages, status: :unprocessable_entity }
       end
-      
     end
   end
 
@@ -31,14 +30,13 @@ class CustomersController < ApplicationController
   end
 
   def update
-     respond_to do |format|
+    respond_to do |format|
       if @customer.update(customer_params)
         format.json { head :no_content }
         format.js
       else
         format.json { render json: @customer.errors.full_messages, status: :unprocessable_entity }
       end
-     
     end
   end
 
@@ -53,11 +51,11 @@ class CustomersController < ApplicationController
   end
 
 private
-  
+
   def set_customer
   	@customer = Customer.find(params[:id])
   end
-  
+
   def customer_params
     params.require(:customer).permit(:first_name, :last_name, :phone, :email, :street, :zip, :city)
   end
